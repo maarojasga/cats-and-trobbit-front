@@ -1,0 +1,48 @@
+<div class="cat-card">
+    <h2>{{ isEditing ? 'Editar Gato' : 'Crear Nuevo Gato' }}</h2>
+    <form (ngSubmit)="saveCat()" class="cat-form">
+      <div class="cat-info">
+        <label>Nombre:
+          <input type="text" [(ngModel)]="cat.name" name="name" required>
+        </label>
+        
+        <label>Raza:
+          <input type="text" [(ngModel)]="cat.breed" name="breed" required>
+        </label>
+        
+        <label>Edad:
+          <input type="number" [(ngModel)]="cat.age" name="age" required>
+        </label>
+      </div>
+  
+      <div *ngIf="favoriteImages.length" class="image-selection">
+        <img *ngIf="tempImageUrl" [src]="tempImageUrl" alt="Imagen seleccionada" class="selected-cat-image">
+        <br>
+        <button class="generic-button" type="button" (click)="showImageModal = true">Seleccionar imagen</button>
+        
+      </div>
+  
+      <div *ngIf="showImageModal" class="modal">
+        <div class="modal-content">
+          <span class="close-button" (click)="showImageModal = false">&times;</span>
+          <div class="image-gallery">
+            <div *ngFor="let image of favoriteImages" class="image-item">
+              <img [src]="image.image.url" alt="Imagen favorita" class="gallery-image">
+              <button 
+                (click)="selectImage(image.image.url); showImageModal = false" 
+                [ngClass]="{'selected-button': tempImageUrl === image.image.url, 'favorite-button': tempImageUrl !== image.image.url}">
+                {{ tempImageUrl === image.image.url ? 'Seleccionado' : 'Seleccionar' }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+  
+      <div class="form-buttons">
+        <button class="generic-button" type="submit">Guardar</button>
+        <button class="generic-button" type="button" (click)="router.navigate(['/cats'])">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  

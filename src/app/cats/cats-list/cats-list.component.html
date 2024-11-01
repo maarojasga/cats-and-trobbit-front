@@ -1,0 +1,13 @@
+<h2>Lista de Gatos</h2>
+<div class="cats-list">
+  <div *ngFor="let cat of cats" class="cat-item">
+    <img [src]="cat.image" alt="Foto del gato">
+    <p>{{ cat.name }} ({{ cat.breed }} - {{ cat.age }} años)</p>
+    <button [routerLink]="['/cats/edit', cat._id]" class="edit-button">Editar</button>
+    <button (click)="deleteCat(cat._id)" class="delete-button">Eliminar</button>
+  </div>
+</div>
+
+<div class="add-button-container">
+    <button routerLink="/cats/new" class="add-button">Agregar Nuevo Gato</button>
+  </div>

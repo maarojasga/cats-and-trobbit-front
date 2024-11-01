@@ -1,0 +1,43 @@
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin: 1rem auto;
+    max-width: 800px;
+  }
+  
+  .image-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 220px;
+    overflow: hidden;
+  }
+  
+  .image-item img {
+    height: 80%;
+    width: auto;
+    border-radius: 8px;
+  }
+  
+  .default-button {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .favorite-button {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

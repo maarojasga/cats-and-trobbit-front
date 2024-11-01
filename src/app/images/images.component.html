@@ -1,0 +1,11 @@
+<div class="image-gallery">
+    <div *ngFor="let image of images" class="image-item">
+      <img [src]="image.url" alt="Cat image">
+      <button 
+        (click)="addToFavorites(image.id)" 
+        [ngClass]="{ 'favorite-button': isFavorite(image.id), 'default-button': !isFavorite(image.id) }">
+        {{ isFavorite(image.id) ? 'Favorita' : 'Añadir' }}
+      </button>
+    </div>
+  </div>
+  
